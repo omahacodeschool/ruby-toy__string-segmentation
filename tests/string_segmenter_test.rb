@@ -8,18 +8,18 @@ class StringSegmenterTest < Minitest::Test
   end
 
   def test_plural
-    sample_plural = "ilovepuzzles"
-    assert_equal(["i", "love", "puzzles"], segment_string(sample_plural))
+    sample_str = "ilovepuzzles"
+    assert_equal(["i", "love", "puzzles"], segment_string(sample_str))
   end
 
   def test_compound
-    sample_compound = "frostbitehuman"
-    assert_equal(["frostbite", "human"], segment_string(sample_compound))
+    sample_str = "frostbitehuman"
+    assert_equal(["frostbite", "human"], segment_string(sample_str))
   end
 
   def test_word_in_word
-    word_word = "pressuremagicart"
-    assert_equal(["pressue", "magic", "art"], segment_string(word_word))
+    sample_str = "pressuremagicart"
+    assert_equal(["pressue", "magic", "art"], segment_string(sample_str))
   end
 
 end
