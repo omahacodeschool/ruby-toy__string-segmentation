@@ -4,11 +4,11 @@ require 'string_segmenter'
 class StringSegmenterTest < Minitest::Test
   def test_find_word
     sample_str = "turtlehappy"
-    assert_equal("turtle", segment_string(sample_str))
+    assert_equal((["turtle", "happy"]), segment_string(sample_str))
   end
   def test_plural_words
     sample_str = "wordsturtle"
-    assert_equal("words", segment_string(sample_str))
+    assert_equal((["words", "turtle"]), segment_string(sample_str))
   end
 end
 
