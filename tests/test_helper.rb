@@ -1,3 +1,3 @@
-require "minitest/rg"
+require 'minitest/rg'
 require 'minitest/autorun'
 
