@@ -3,6 +3,6 @@ require 'dictionary'
 
 class DictionaryTest < Minitest::Test
   def test_dictionary
-    assert_equal(true, valid_word?(word))
+    assert_equal(true, valid_word?("smiles"))
   end
 end
