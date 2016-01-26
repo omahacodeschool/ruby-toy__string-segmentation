@@ -12,4 +12,6 @@ class StringSegmenterTest < Minitest::Test
     str = "newkidsontheblockhadabunchofhitschinesefoodmakesmesickIthinkitisflywhengirlsstopbyforthesummerforthesummer"
     assert_equal(["new","kids","on","the","block","had","a","bunch","of","hits","chinese","food","makes","me","sick","I","think","it","is","fly","when","girls","stop","by","for","the","summer","for","the","summer"], segment_string(str))
   end
+end
+end
 # Remember, the names of all test methods should begin with "test_".
