@@ -4,7 +4,7 @@ require 'dictionary'
 class DictionaryTest < Minitest::Test
  def test_valid_word
  word = "love" 
- assert_equal("love", valid_word?(word))
+ assert_equal("love", valid_word?("love"))
 end
 
 end
