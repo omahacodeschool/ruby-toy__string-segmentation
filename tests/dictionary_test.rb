@@ -2,7 +2,7 @@ require 'test_helper'
 require 'dictionary'
 
 class DictionaryTest < Minitest::Test
-  # Your test methods go here.
+  def test_dictionary
+    dictionary.include?(word)
+  end
 end
-
-# Remember, the names of all test methods should begin with "test_".
