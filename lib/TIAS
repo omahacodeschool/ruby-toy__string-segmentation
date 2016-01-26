@@ -1,0 +1,45 @@
+def valid_word?(word)
+  # Populate this array with some words of your choosing.
+  dictionary = ["turtle", "blue", "train", "trust", "elephant", "waffle", "puzzle", "lion", "tiger", "bear"]
+
+  # Return true if your dictionary contains `word`
+  # or false if it does not.
+  dictionary.include?(word)
+
+end
+
+#str="liontigerbear"
+#array=str.split""
+#result_array=[]
+#array.each_with_index do |x, i|
+#puts str[0..i]
+#end
+
+str="liontigerbear"
+array=str.split""
+result_array=[]
+array.each_with_index do |x, i|
+if valid_word?(str[0..i]) == true
+found_word=str[0..i]
+result_array << found_word
+end
+puts result_array
+end
+
+#identified_word=str[0..i]
+#if valid_word?(str[0..i]) == true
+#result_array << identified_word
+#end
+#puts result_array
+#end
+
+#str="liontigerbear"
+#array=str.split""
+#result_array=[]
+#array.each_with_index do |x, i|
+#if valid_word?(str[0..i]) == true
+#found_word=str[0..i]
+#result_array << found_word
+#end
+#puts result_array
+#end
