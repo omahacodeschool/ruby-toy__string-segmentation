@@ -1,16 +1,11 @@
-require 'dictionary_test'
-
+require 'dictionary'
 
 def segment_string(str)
   str = str.chars
   new_arr = []
-  
-  str.each do |char|
-    new_arr << char
-  return new_arr
-  end
+  valid_word?(str)
 
 end
 
-segment_string('iloveyou')
+segment_string('love')
 
