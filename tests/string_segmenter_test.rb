@@ -17,6 +17,10 @@ class StringSegmenterTest < Minitest::Test
     assert_equal(["frostbite", "human"], segment_string(sample_compound))
   end
 
+  def test_word_in_word
+    word_word = "pressuremagicart"
+    assert_equal(["pressue", "magic", "art"], segment_string(word_word))
+  end
 
 end
 
