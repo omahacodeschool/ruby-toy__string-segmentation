@@ -4,22 +4,22 @@ require 'string_segmenter'
 class StringSegmenterTest < Minitest::Test
   def test_plural
     sample_input = "capscapescanscans"
-    assert_equal("caps capes can scans", segment_string(sample_input))
+    assert_equal(["caps", "capes", "can", "scans"], segment_string(sample_input))
   end
 
   def test_suffix
     sample_input = "partingpartedcapcappingcaptioncaptioning"
-    assert_equal("parting parted cap capping caption captioning", segment_string(sample_input))
+    assert_equal(["parting", "parted", "cap", "capping", "caption", "captioning"], segment_string(sample_input))
   end
 
   def test_word_in_word
     sample_input = "apartapartapartmentapartments"
-    assert_equal("apart a part apartment apartment", segment_string(sample_input))
+    assert_equal(["apart", "a", "part", "apartment", "apartment"], segment_string(sample_input))
   end
 
   def test_blank_str
     sample_input = ""
-    assert_equal("", segment_string(sample_input))
+    assert_equal([""], segment_string(sample_input))
   end
 end
 
