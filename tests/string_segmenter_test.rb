@@ -19,7 +19,7 @@ class StringSegmenterTest < Minitest::Test
 
   def test_word_in_word
     sample_str = "pressuremagicart"
-    assert_equal(["pressue", "magic", "art"], segment_string(sample_str))
+    assert_equal(["pressure", "magic", "art"], segment_string(sample_str))
   end
 
 end
