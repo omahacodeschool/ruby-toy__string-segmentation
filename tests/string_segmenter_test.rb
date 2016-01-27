@@ -2,9 +2,10 @@ require 'test_helper'
 require 'string_segmenter'
 
 class StringSegmenterTest < Minitest::Test
-  def test_divided_string#use include method
-    sample_words("fieldhorsepetal")
-  assert_equal(("field", "horse," "petal"), segment_string)
+  def test_divided_string
+    sample_words("fieldhorsepetal").downcase
+    assert_equal(["field", "horse", "petal"], segment_string(sample_words))
+  end
 end
 
 # Remember, the names of all test methods should begin with "test_".
