@@ -1,24 +1,29 @@
-require 'dictionary'
+require_relative 'dictionary'
 
 def segment_string(str)
-  letters=str.split""
-  letters.each do |x, i|
-    word=""
-    i+=1
-    word << letters[i+=1] until valid_word?(word) == true
-str.index+=1
-valid_word?(letters[0]+letters[1])==true
-
-str.each_char do |x|
-  word_string = str[0..x.index-1] << x
-  if valid_word?(word_string) == true
-    result_array = []
-    result_array << word_string
-
-string[0] << x
-
-string[0..x.index-1] 
-
-until str[0..string.index(x)] 
-
+  array = str.split("")
+  result_array=[]
+  string2 = ""
+  word = ""
+  index_to_delete = 0
+  until array.empty?
+    string2 << array.shift
+    if valid_word?(string2)
+      word = string2.dup
+      array.each_with_index do |x, i|
+        string2 << x
+        if valid_word?(string2)
+          word = string2.dup
+          index_to_delete=i
+        end
+      end
+      array.slice!(0..index_to_delete) unless index_to_delete == 0
+      result_array << word
+      string2 = ""
+      word = ""
+    end
+  end
+  p result_array
 end
+
+segment_string("waffletigersharklionwaffle")
