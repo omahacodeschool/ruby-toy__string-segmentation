@@ -1,11 +1,15 @@
 require_relative 'dictionary'
 
 def segment_string(str)
-  #str = str.chars
-  #new_arr = []
+  characters = str.chars
+  new_word = []
+  word_arr = []
   
-
-  valid_word?(str)
+  new_word << characters.shift
+  valid_word?(new_word.join) == true
+  word_arr << new_word.join
+  new_word = []
+  return word_arr
 
 end
 
