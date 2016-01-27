@@ -18,6 +18,11 @@ class StringSegmenterTest < Minitest::Test
     assert_equal(["unique", "new", "york"], segment_string(sample_string))
   end
 
+  def test_string_segmentation_animals
+    sample_string = "chickencathorsedog"
+    assert_equal(["chicken", "cat", "horse", "dog"], segment_string(sample_string))
+  end
+
 end
 
 # Remember, the names of all test methods should begin with "test_".

@@ -2,7 +2,7 @@ def valid_word?(word)
   # Populate this array with some words of your choosing.
   dictionary = %w(turtle train trust blue)
 
-  if dictionary.include?("word")
+  if dictionary.include?(word)
     return true
   else
     return false
