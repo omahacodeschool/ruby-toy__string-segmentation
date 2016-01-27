@@ -3,15 +3,19 @@ require 'string_segmenter'
 
 class StringSegmenterTest < Minitest::Test
   def test_string_with_capital_letters
-    str = "CatcallErgo"
-    assert_equal(["Catcall","Ergo"], segment_string(str))
+    str = "AreYouForReal"
+    assert_equal(["Are","You","For","Real"], segment_string(str))
   end
 
-class StringSegmenterTest < Minitest::Test
   def test_string_with_plural_words
-    str = "catcallsergo"
-    assert_equal(["catcalls","ergo"], segment_string(str))
+    str = "catsgo"
+    assert_equal(["cats","go"], segment_string(str))
   end
-end
+
+
+  def test_compound_words
+    str = "rainbowsaltwater"
+    assert_equal(["rainbow","saltwater"], segment_string(str))
+  end
 end
 # Remember, the names of all test methods should begin with "test_".
