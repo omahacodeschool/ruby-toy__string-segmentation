@@ -1,21 +1,37 @@
 require_relative 'dictionary'
 
 def segment_string(str)
-  letters = str.to_s.split("")
-  words = []
+  characters = str.to_s.split("")
+  char_evaluation = []
+  possible_words = []
   answer = []
-  while letters.length > 0
-    words << letters.shift
-    test = words.join
-    if valid_word?(test) == true
-      answer << words.join
-      words = []
-      puts answer.to_s + "= answer"
-      puts words.to_s + "= words"
-      puts letters.to_s + "= letters"
-
+  skip_counter = 0
+  until characters.empty?
+    char_evaluation << characters.shift
+    test = char_evaluation.join
+    if valid_word?(test) == true  
+      possible_words<< test.dup
+      char_evaluation = []
+      leftovers = characters.dup
     end
+    if valid_word?(test) == true && skip_counter != 0
+      x = skip_counter
+      until leftovers.empty?
+        possible_words[x].to_s.split""<< leftovers.shift
+        test = possible_words.join
+        if valid_word?(test) == true  
+        possible_words<< test.dup
+        char_evaluation = []
+        leftovers = characters.dup
+        end
+      end
+    end
+    if leftovers.nil?
+      puts "yay"
+      else skip_counter = +1
+      end
+    end
+    return possible_words
   end
-end
 
-segment_string("catpopper")
+puts segment_string("catyarnpoppertrashhamper")
