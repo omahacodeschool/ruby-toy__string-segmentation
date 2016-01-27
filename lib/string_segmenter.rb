@@ -6,8 +6,8 @@ def segment_string(str)
   str = str.split('')
   str.each do |i|
     collect.push(i)
-    if valid_word?(collect) == true
-      word = collect.join('')
+    word = collect.join('')
+    if valid_word?(word) == true
       wordArray.push(word)
       collect = []
     end
