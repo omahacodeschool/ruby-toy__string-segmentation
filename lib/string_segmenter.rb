@@ -4,25 +4,31 @@ def segment_string(str)
   letters = []
   collection = Hash.new
   count = 0
-  skip_counter = 
   i = 0
+  skip_counter = 0
   
-  while i < arr.length
-    arr.length.times do  
-      letters << arr[0..i]
+  while i < arr.length  
+      letters << arr[count..i]
       count += 1
 
       if valid_word?(letters.join) == true
-        collection.store(possible_word, count-1) #seems like cheating, I want count to equal the index of the last letter in the word.
-        #puts "Kay, now 'letters' is #{letters}"
-        #puts "Your collection hash is #{collection}"
+        collection.store(letters.join, count-1) #seems like cheating, I want count to equal the index of the last letter in the word.
+        puts "Kay, now 'letters' is #{letters}"
+        puts "Your collection hash is #{collection}"
         letters = []
+        count==i
+        i += 1
       else
         i += 1
+        #count += 1
         #puts "Now 'letters' is #{letters}"
-        #letters = []
       end
-    end
+      if letters.length >0 
+        skip_counter +=1
+        #count==i
+        #i+=1
+      end
+
   end
 
   #puts "Now 'arr' is #{arr}"
