@@ -10,8 +10,9 @@ def segment_string(str)
     if valid_word?(word) == true
       wordArray.push(word)
       collect = []
-    when i == collect[-1]
+    elsif i == collect[-1]
       if collect.empty? == false
+        #skip_counter = 0 here?
         str.each do |i| #skip counter += 1 here?
           collect.push(i)
           word = collect.join('')
@@ -22,6 +23,8 @@ def segment_string(str)
         end
       else break
       end
+    else next
+    end
   end
   return wordArray
 end
