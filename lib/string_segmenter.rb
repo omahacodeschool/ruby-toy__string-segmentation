@@ -5,14 +5,17 @@ def segment_string(str)
   new_word = [ ]
   word_arr = [ ]
   
+#until characters.length  
   characters.each do |x|
   new_word << x
 if valid_word?(new_word.join) == true
-  word_arr << new_word.join
+  word_arr << new_word.join 
   new_word = [ ]
-  return word_arr
-  end
+  
 end
+end  
+  return word_arr
+  
 end
 
 segment_string('iloveyou')
