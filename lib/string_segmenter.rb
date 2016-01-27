@@ -1,10 +1,21 @@
-require 'dictionary'
+require_relative 'dictionary.rb'
 def segment_string(str)
+  i = 0
+  ending_point = 1
+  temp = []
   words = []
-  str.downcase.delete('^a-z ')
-  if dictionary.include?(str)
-    then words << str
+
+  while i < str.length do
+    section_of_string = str[i]
+      temp << section_of_string
+      
+      if valid_word?(temp.join)
+        words << temp.join
+        temp = []
+      end  
+      i += 1
+  
   end
+  return words
 end
-segment_string("avacadobuscatdog")
-words
+#segment_string("avacadoburrito")

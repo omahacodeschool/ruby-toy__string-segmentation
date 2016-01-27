@@ -1,7 +1,5 @@
 def valid_word?(word)
   # Populate this array with some words of your choosing.
-  dictionary = []
-
-  # Return true if your dictionary contains `word`
-  # or false if it does not.
+  dictionary = ["avacado","burrito","cat","dog","elephant","fox","grape","hampsters","ice","jello","kangaroo","lego","man","north","oak","pure","quest","real","small","trouble","universe","vast","world","xray","yellow","zebra"]
+  dictionary.include?(word)
 end
