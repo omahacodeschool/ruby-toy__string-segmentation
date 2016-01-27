@@ -1,7 +1,4 @@
 def valid_word?(word)
-  # Populate this array with some words of your choosing.
-  dictionary = []
-
-  # Return true if your dictionary contains `word`
-  # or false if it does not.
+  dictionary = ["opening", "open", "closing", "ending", "end", "starting", "start", "connection", "connect","rejection", "reject", "abstraction", "abstract", "affection", "affect", "trusted", "trust", "fated","fat", "fate", "parted", "part", "walked", "walk", "cement", "cemented", "casement", "case", "basement", "base", "pavement", "pave", "lovely", "love", "carefully", "care", "careful", "origin", "original", "originally", "one", "two", "three", "ones", "twos", "threes", "positive", "posit", "suggestive", "suggest", "connective", "con", "connective", "judgingly", "judging", "endings", "aliases", "alias", "basements"]
+  dictionary.include?(word)
 end
