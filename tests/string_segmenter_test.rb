@@ -7,9 +7,12 @@ class StringSegmenterTest < Minitest::Test
     assert_equal((["turtle", "happy"]), segment_string(sample_str))
   end
   def test_plural_words
-    sample_str = "wordsturtle"
-    assert_equal((["words", "turtle"]), segment_string(sample_str))
+    sample_str = "wordsupper"
+    assert_equal((["word", "supper"]), segment_string(sample_str))
   end
+  def test_compound_word
+    sample_str = "birdbluebird"
+    assert_equal((["bird", "bluebird"]), segment_string(sample_str)
 end
 
 # Remember, the names of all test methods should begin with "test_".
