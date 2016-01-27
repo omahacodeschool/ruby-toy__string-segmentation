@@ -14,12 +14,6 @@ class DictionaryTest < Minitest::Test
     assert_equal(false, result)
   end
 
-  def test_dictionary_extra_character
-    word = "smiile"
-    result = valid_word?(word)
-    assert_equal(false, result)
-  end
-
   def test_dictionary_capital_letters
     word = "SMIle"
     result = valid_word?(word)

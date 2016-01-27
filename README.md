@@ -4,7 +4,7 @@
 
 Given a string like `"turtlebluetraintrust"`, collect real words (starting from the left) and return them in an array–e.g. `["turtle", "blue", "train", "trust"]`.
 
-Assume every character in the string is part of a real word. E.g. `"starbb83po"` is not an input you would have to deal with.
+Assume every character in the string is part of a real word. E.g. `"bb83pstaro"` is not an input you would have to deal with.
 
 That also means that you must take care when dealing with a string like `"smilesbirthfive"`, because if the word `"smile"` is detected, that leaves the `"s"` after it dangling, which is not okay. So your program needs to be able to handle such a string to properly return `["smiles", "birth", "five"]`.
 

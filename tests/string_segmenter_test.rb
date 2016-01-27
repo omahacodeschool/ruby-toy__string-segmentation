@@ -8,6 +8,12 @@ class StringSegmenterTest < Minitest::Test
     assert_equal(["apple", "meagan", "guitar"], result)
   end
 
+  def test_string_with_valid_words
+    str = "applemeaganguitar"
+    result = segment_string(str)
+    assert_equal(["apple", "meagan", "guitar"], result)
+  end
+
   def test_string_with_multiple_possible_word_selections
     str = "smilespreadtacohelping"
     result = segment_string(str)
@@ -20,15 +26,23 @@ class StringSegmenterTest < Minitest::Test
     assert_equal(nil, result)
   end
 
-  def test_string_with_non_alpha_characters
-    str = "smilespr9.870"
+  def test_string_with_extra_characters
+    str = "spreadingsmileguitar"
     result = segment_string(str)
-    assert_equal(nil, result)
+    assert_equal(["spreading", "smile" "guitar"], result)
   end
 
-  def test_string_with_spaces
-    str = "smiles preadhelping"
-    result = segment_string(str)
-    assert_equal(["smiles" "spread", "helping"], result)
-  end
+  #def test_string_with_non_alpha_characters
+   # str = "smilespr9.870"
+    #result = segment_string(str)
+    #assert_equal(nil, result)
+  #end
+
+  #def test_string_with_spaces
+   # str = "smiles preadhelping"
+    #result = segment_string(str)
+    #assert_equal(["smiles" "spread", "helping"], result)
+  #end
+
+  #Will use later
 end
