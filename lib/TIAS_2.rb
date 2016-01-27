@@ -26,4 +26,4 @@ def segment_string(str)
   p result_array
 end
 
-segment_string("bluestrainwafflingtigershark")
+segment_string("tigerslionswaffling")
