@@ -14,7 +14,7 @@ def segment_string(str)
     puts "Checking #{part_of_str}" #this tells you the part of the string you're running
 
     if valid_word?(part_of_str) #if part_of_string is a valid word
-      puts "#{part_of_str} IS a valid word!"  #put that part_of_string on the screen and tell me it IS a valid word!
+      puts "#{part_of_str} IS TOTALLY A VALID WORD! :) :) :)"  #put that part_of_string on the screen and tell me it IS a valid word!
       real_words << part_of_str #push part of string to real words array
       starting_point = ending_point + 1
     else #otherwise if part_of_str is NOT a valid word
@@ -25,11 +25,11 @@ def segment_string(str)
 
   
 if number_of_characters == real_words.join.length #if number_of_characters in the string is equal to the length of the real_words array
-      puts "Success all the letters have been used!!!"
+      puts "SUCCESS!!! ALL OF THE LETTERS WERE USED!!! :) :) :)"
 else #if false 
-      puts "ALERT THERE IS DANGLER!!!!"
+      puts "ALERT THERE IS DANGLER!!!"
+end
+  p real_words
 end
 
-
-  return real_words
-end
+segment_string("allofthesearewords")

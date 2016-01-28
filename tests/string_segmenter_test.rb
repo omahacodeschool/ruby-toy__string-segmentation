@@ -14,8 +14,8 @@ class StringSegmenterTest < Minitest::Test
 
 
   def test_dangling_letters
-    str = "rainbows"
-    assert_equal(["rainbows"], segment_string(str))
+    str = "rainbow"
+    assert_equal(["rainbow"], segment_string(str))
   end
 end
 # Remember, the names of all test methods should begin with "test_".

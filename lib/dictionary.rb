@@ -1,6 +1,6 @@
 def valid_word?(word)
   # Populate this array with some words of your choosing.
-  dictionary = ["are","you","for","real","cats","go","cat","rainbow","rainbows","salt","water","saltwater","jog"]
+  dictionary = ["all","of","these","words","are","you","for","real","cats","go","cat","rainbow","rainbows","rain","bow","salt","water","saltwater","jog"]
 
   dictionary.include?(word)
 end  
