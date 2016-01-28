@@ -1,59 +1,54 @@
 require_relative 'dictionary'
 
 def segment_string(str)
-  puts "STARTING!"
-
+#establish the empty arrays
   characters = str.to_s.split("")
-  puts "characters are #{characters}"
-
+#array of string divided into individual characters
   char_evaluation = []
+#array stores characters until they are established as words in dictionary
   possible_words = []
+#array stores words that have been established in the string
   leftovers = []
-  otherplace = []
-  skip_counter = -1
+#array stores any characters that have not been assigned..."danglers"
+  i = 0
+#establishes integer as 0--this is the skip counter for dummies
 
-  puts "About to loop..."
-  until characters.empty?
-    characters_clone = characters
-    leftovers << characters_clone.pop
-    char_evaluation = characters_clone
+#next if??????
 
-    puts "Just deleted characters."
-    puts "Now char_evaluation is #{char_evaluation}"
-    puts "and characters is #{characters}"
-    puts "leftovers is #{leftovers}"
+  until characters.empty? && leftovers.empty? #until all the char are reviewed w no leftovers
 
-    test = char_evaluation.join
-    if valid_word?(test) == true
-     puts "THATS A WORD" 
-      possible_words<< char_evaluation.join
-      characters_clone=characters
+    char_evaluation << characters.shift #the letters are put one by one into array
+    test1 = char_evaluation.join #a word is formed from the array
+    if valid_word?(test1) == true  #once the formed word matches a dictionary word
+     possible_words<< char_evaluation.join #that joined word is stored away
+     char_evaluation = [] #the evaluation array is emptied
+     leftovers = characters.dup  #leftovers are established    
+     i = i+ 1 #the count of words goes up by one
     end
-    
-    until leftovers.empty?
-    characters << leftovers.pop
-    leftovers_clone = leftovers
-    otherplace << leftovers_clone.pop
-    char_evaluation = leftovers_clone
-
-    puts "Just deleted characters."
-    puts "Now char_evaluation is #{char_evaluation}"
-    puts "and characters is #{characters}"
-    puts "leftovers is #{leftovers}"
-
-    test = char_evaluation.join
-      if valid_word?(test) == true
-      puts "THATS A WORD" 
-      possible_words<< char_evaluation.join
-      characters_clone=characters
+  
+    puts "leftovers = #{leftovers}"
+#here is my fucking problem right here, doesn't loop through all letters "ing" (until leftovers=empty) doesn't work for first words (i problem/conditional)
+    if leftovers.any?  && i>0
+    puts "starting leftovers test"    
+      clone = leftovers.dup #makes a second list of leftover letters
+      possiblelongword = possible_words[-1].split("") #test last word 
+      until clone.empty? #until all the chars are reviewed 
+      possiblelongword << clone.shift #WHAT THE FUCK IS HAPPENING HERE
+      longwordtest = possiblelongword.join #a word is formed from the array
+      puts "longwordtest = #{longwordtest}"
+        if valid_word?(longwordtest) == true
+        possible_words[-1] = longwordtest
+        end
       end
+      leftovers = clone
+        clone = [] #this needs to NOT HAPPEN unless it's a new word??
     end
   end
-  
-  puts possible_words.to_s
+puts i
+puts possible_words.to_s
 end
 
-puts segment_string("playcatbutt")
+segment_string("catplayering")
 
 
 
