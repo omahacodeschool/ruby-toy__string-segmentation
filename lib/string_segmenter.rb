@@ -23,28 +23,13 @@ def segment_string(str)
     ending_point+=1
   end
 
-  if ending_point == number_of_characters-1  # if end of the line, ending point IS greater than or equal to number of characters
-    if number_of_characters == real_words.join.length #if number_of_characters in the string is equal to the length of the real_words array
+  
+if number_of_characters == real_words.join.length #if number_of_characters in the string is equal to the length of the real_words array
       puts "Success all the letters have been used!!!"
-    else #if false 
+else #if false 
       puts "ALERT THERE IS DANGLER!!!!"
-    end
-  end
+end
+
 
   return real_words
 end
-segment_string("areyouforreal")
-
-# while i <= lc_str.downcase.length do
-#  +    x = lc_str[end_point..i]
-#  +    if valid_word?(x)
-#  +      final << x
-#  +      end_point = i + 1
-#  +    end
-        
-#  -x=str.slice(0..i+=1)     +    i += 1
-#  -  Until True     +  end
-
-
-
-
