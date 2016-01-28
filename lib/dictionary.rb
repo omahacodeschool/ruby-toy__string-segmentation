@@ -1,5 +1,5 @@
 def valid_word?(word)
-  dictionary = ["turtle", "blue", "train", "trust", "smiles", "birth", "five", "smile", "association"]
+  dictionary = ["turtle", "blue", "train", "trust", "smiles", "birth", "five", "smile", "asset", "as", "a"]
 
   return dictionary.include?(word)
 
