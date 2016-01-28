@@ -13,9 +13,19 @@ class StringSegmenterTest < Minitest::Test
   end
 
 
-  def test_dangling_letters
-    str = "rainbow"
-    assert_equal(["rainbow"], segment_string(str))
+  def test_string_with_suffix
+    str = "biggestreadingimprovedfranticlywoodenhigherattraction"
+    assert_equal(["biggest", "reading","improved","franticly","wooden","higher","attraction"], segment_string(str))
+  end
+
+    def test_string_with_preffix
+    str = "returnuncommonimpossibleirrationalmisprintdisengage"
+    assert_equal(["return","uncommon","impossible","irrational","misprint","disengage"], segment_string(str))
+  end
+
+    def test_string_with_preffix_and_suffix
+    str = "uncomfortableirregularlydisrespectedundisclosed"
+    assert_equal(["uncomfortable","irregularly","disrespected","undisclosed"], segment_string(str))
   end
 end
 # Remember, the names of all test methods should begin with "test_".

@@ -31,5 +31,3 @@ else #if false
 end
   p real_words
 end
-
-segment_string("allofthesearewords")
