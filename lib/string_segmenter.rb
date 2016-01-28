@@ -19,36 +19,38 @@ def segment_string(str)
 
     char_evaluation << characters.shift #the letters are put one by one into array
     test1 = char_evaluation.join #a word is formed from the array
-    if valid_word?(test1) == true  #once the formed word matches a dictionary word
+    if valid_word?(test1) == true  #once the formed word matches dictionary
+    puts "found a word! #{test1}"
      possible_words<< char_evaluation.join #that joined word is stored away
-     char_evaluation = [] #the evaluation array is emptied
-     leftovers = characters.dup  #leftovers are established    
+     char_evaluation = [] #the evaluation array is emptied   
      i = i+ 1 #the count of words goes up by one
     end
-  
-    puts "leftovers = #{leftovers}"
-#here is my fucking problem right here, doesn't loop through all letters "ing" (until leftovers=empty) doesn't work for first words (i problem/conditional)
+
+  leftovers = characters.dup
+
+    puts "initial leftovers = #{leftovers}"
     if leftovers.any?  && i>0
     puts "starting leftovers test"    
       clone = leftovers.dup #makes a second list of leftover letters
       possiblelongword = possible_words[-1].split("") #test last word 
-      until clone.empty? #until all the chars are reviewed 
-      possiblelongword << clone.shift #WHAT THE FUCK IS HAPPENING HERE
-      longwordtest = possiblelongword.join #a word is formed from the array
-      puts "longwordtest = #{longwordtest}"
-        if valid_word?(longwordtest) == true
-        possible_words[-1] = longwordtest
+        until clone.empty? #until all the chars are reviewed 
+        possiblelongword << clone.shift 
+        longwordtest = possiblelongword.join 
+          if valid_word?(longwordtest) == true
+          possible_words[-1] = longwordtest
+          puts "at this point leftovers = #{leftovers}"
+          end
         end
-      end
       leftovers = clone
-        clone = [] #this needs to NOT HAPPEN unless it's a new word??
+      clone = []
+      puts "shitty leftovers = #{leftovers}" #this needs to NOT HAPPEN unless it's a new word??
     end
   end
 puts i
 puts possible_words.to_s
 end
 
-segment_string("catplayering")
+segment_string("catplayeringdog")
 
 
 
