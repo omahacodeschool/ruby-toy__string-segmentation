@@ -8,7 +8,8 @@ def segment_string(str)
 
   char_evaluation = []
   possible_words = []
-  skip_counter = 0
+  answer = []
+  skip_counter = -1
 
   puts "About to loop..."
   until characters.empty?
@@ -26,23 +27,25 @@ def segment_string(str)
     end
 
     if valid_word?(test) == false && characters.empty?
-    
     puts "NOW THIS IS RELEVENT"
-      
       skip_counter = skip_counter + 1
       x = skip_counter
-      possible_words[x]<< char_evaluation.shift
-      puts "possible_words is now #{possible_words}" 
-      test = possible_words.join
-      if valid_word?(test) == true  
-      possible_words<< char_evaluation.join
-      char_evaluation = []
+      until char_evaluation.empty?
+        puts "problem_word = #{possible_words[x]}"
+        tester_array = possible_words[x].dup
+        tester_array<< char_evaluation.shift
+        test = tester_array.to_s
+          if valid_word?(test) == true  
+            puts "FOUND YOU MOTHERFUCKER #{tester_array}"
+            possible_words[x] = tester_array
+            char_evaluation = []
+          else skip_counter = skip_counter + 1
+          end
+      
       end
-      puts "DID IT"
     end
   end
-
-  return possible_words
+  puts possible_words.to_s
 end
 
-puts segment_string("catdoghamper")
+puts segment_string("catshitplaying")
