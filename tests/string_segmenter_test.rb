@@ -27,9 +27,9 @@ class StringSegmenterTest < Minitest::Test
   end
 
   def test_string_with_extra_characters
-    str = "spreadingsmileguitar"
+    str = "spreadingsmilesguitar"
     result = segment_string(str)
-    assert_equal(["spreading", "smile" "guitar"], result)
+    assert_equal(nil, result)
   end
 
   #def test_string_with_non_alpha_characters

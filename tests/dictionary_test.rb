@@ -3,20 +3,15 @@ require 'dictionary'
 
 class DictionaryTest < Minitest::Test
   def test_dictionary_valid_word
-    word = "smiles"
+    word = ["s", "e", "l", "i", "m", "s"]
     result = valid_word?(word)
     assert_equal(true, result)
   end
 
   def test_dictionary_invalid_word
-    word = "beebop"
+    word = ["b", "e", "e", "b", "o", "p"]
     result = valid_word?(word)
     assert_equal(false, result)
   end
 
-  def test_dictionary_capital_letters
-    word = "SMIle"
-    result = valid_word?(word)
-    assert_equal(true, result)
-  end
 end
