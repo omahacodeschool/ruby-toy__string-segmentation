@@ -8,7 +8,7 @@ class StringSegmenterTest < Minitest::Test
   end
 
   def test_string_segmenter_plurals
-    sample_input = "associationsmilesbirthfive"
-    assert_equal(["association", "smiles", "birth", "five"], segment_string(sample_input))
+    sample_input = "assetsmilesbirthfive"
+    assert_equal(["asset", "smiles", "birth", "five"], segment_string(sample_input))
   end
 end

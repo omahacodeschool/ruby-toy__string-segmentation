@@ -7,7 +7,6 @@ def segment_string(str)
   i = 0
   str = str.split('')
   skip_counter = 0
-
   puts "Just split str. It's now #{str}"
   puts "Starting the loop!"
   puts "str.length is #{str.length}"
@@ -45,12 +44,11 @@ def segment_string(str)
       puts "trying next letter: i is now #{i}"
 
       if i >= str.length #at end of string
-        puts "reached end of string"
-        puts "word is not valid"
+        puts "reached end of string--no valid word found"
         collect = []
         puts "Collect has been emptied to start loop over"
         skip_counter = 1
-        puts "skip counter is 1"
+        puts "skip counter is set to 1"
         finalWord = wordHash.max_by { |k, v| v }
 
         finalWordKey = finalWord[0] #
