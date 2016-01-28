@@ -5,6 +5,7 @@ def segment_string(str)
   result_array=[]
   new_array = []
   string2 = ""
+  string3 = ""
   word = ""
   until array.empty?
     string2 << array.shift
@@ -16,6 +17,11 @@ def segment_string(str)
         if valid_word?(string2)
           word = string2.dup
           array = new_array.dup
+          until array.empty?
+            string3 << array.shift
+            if valid_word?(string3) == false
+
+end
         end
       end
       result_array << word
@@ -23,7 +29,7 @@ def segment_string(str)
       word = ""
     end
   end
-  p result_array
+  p string3
 end
 
-segment_string("sharkslionswaffling")
+segment_string("sharkspuzzlingtrusts")

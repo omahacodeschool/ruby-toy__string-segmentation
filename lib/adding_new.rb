@@ -10,12 +10,12 @@ def segment_string(str)
   until array.empty?
     string2 += array.shift
     if valid_word?(string2)
-      word = string2
+      word = string2.dup
       new_array = array
       until new_array.empty?
         string2 += new_array.shift
         if valid_word?(string2)
-          word = string2
+          word = string2.dup
           array = new_array
         end
         ##look at remainder - put letters onto it until you can form valid word
@@ -29,4 +29,4 @@ def segment_string(str)
   p result_array
 end
 
-segment_string("bluepuzzlingtrusts")
+segment_string("sharkspuzzlingtrusts")
