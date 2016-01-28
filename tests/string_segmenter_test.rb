@@ -4,7 +4,7 @@ require 'string_segmenter'
 class StringSegmenterTest < Minitest::Test
   def test_string_with_capital_letters
     str = "AreYouForReal"
-    assert_equal(["Are","You","For","Real"], segment_string(str))
+    assert_equal(["are","you","for","real"], segment_string(str))
   end
 
   def test_string_with_plural_words
