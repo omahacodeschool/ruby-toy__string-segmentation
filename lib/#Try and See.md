@@ -66,3 +66,21 @@ def segment_string(str)
   return words
 end
 segment_string("wordssuppertrust")
+
+
+
+  while i < arr.length  
+      letters << arr[count..i]
+      count += 1
+
+      if valid_word?(letters.join) == true
+        index = arr.index{|x| x==letters[-1]}
+        collection.store(letters.join, index) #seems like cheating, I want count to equal the index of the last letter in the word.
+        puts "Kay, now 'letters' is #{letters}"
+        puts "Your collection hash is #{collection}"
+        letters = []
+        i += count
+      else
+        i += 1
+      end
+        puts "Now 'letters' is #{letters}"
