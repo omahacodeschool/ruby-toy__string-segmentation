@@ -23,11 +23,30 @@ def segment_string(str)
     ending_point+=1
   end
 
-  
-if number_of_characters == real_words.join.length #if number_of_characters in the string is equal to the length of the real_words array
+  new_starting_point = real_words.join.length+1
+  new_ending_point =  real_words.pop.length+1
+
+    if number_of_characters == real_words.join.length #if number_of_characters in the string is equal to the length of the real_words array
       puts "SUCCESS!!! ALL OF THE LETTERS WERE USED!!! :) :) :)"
 else #if false 
       puts "ALERT THERE IS DANGLER!!!"
-end
+      real_words.pop #delete last element from array
+      new_part_of_str = lc_str[new_starting_point..new_ending_point]
+      puts "Checking #{new_part_of_str}" #this tells you the part of the string you're running
+      if valid_word?(new_part_of_str)
+      puts "#{new_part_of_str} IS TOTALLY A VALID WORD! :) :) :)"  #put that part_of_string on the screen and tell me it IS a valid word!
+      real_words << new_part_of_str #push part of string to real words array
+      new_starting_point = new_ending_point + 1
+      else #otherwise if part_of_str is NOT a valid word
+      puts "#{new_part_of_str} is NOT a valid word :(" #put that part_of_string on the screen and tell me it is NOT a valid word frowny face
+      end
+    end
   p real_words
 end
+segment_string("longcatsgo")
+#If you get to the end of the loop to find valid words && there is a dangler
+#pop last entry from array
+#return starting point of real_words.join.length as starting point and length of delted word +1 character
+#check if its a valid word
+#if false add next letter to it - cont through end of str
+#if true add to real words array

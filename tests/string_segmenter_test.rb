@@ -8,8 +8,8 @@ class StringSegmenterTest < Minitest::Test
   end
 
   def test_string_with_plural_words
-    str = "catsgo"
-    assert_equal(["cats","go"], segment_string(str))
+    str = "longcatsgo"
+    assert_equal(["long","cats","go"], segment_string(str))
   end
 
 
