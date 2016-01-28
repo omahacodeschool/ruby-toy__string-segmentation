@@ -5,7 +5,7 @@ def segment_string(str)
   words_arr = []
   skip = 0
   index_of_last_found_word = 0
-  9.times do
+  99.times do
        working_str_arr = str_arr[index_of_last_found_word..-1]
         working_str_arr.each do |x|
         resting_arr << x
