@@ -5,7 +5,7 @@ def segment_string(str)
   words_arr = []
   skip = 0
   index_of_last_found_word = 0
-  99.times do
+  str_arr.length.times do
        working_str_arr = str_arr[index_of_last_found_word..-1]
         working_str_arr.each do |x|
         resting_arr << x
@@ -14,20 +14,13 @@ def segment_string(str)
             valid_word?(resting_arr.join) && skip == 0
             words_arr << resting_arr.join
             resting_arr = []
-            
+           
           elsif 
             valid_word?(resting_arr.join) && skip == 1
             skip = 0
-            
-            
-          elsif 
-            valid_word?(resting_arr.join) == false
-         
-            
           end
         end
        
-        
         if 
           resting_arr.empty? == true
           return words_arr
@@ -41,5 +34,3 @@ def segment_string(str)
         end
     end    
 end  
-
-
