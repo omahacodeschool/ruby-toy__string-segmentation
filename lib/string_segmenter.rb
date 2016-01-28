@@ -1,5 +1,11 @@
 require_relative '../lib/dictionary.rb'
 
+
+# Divide a String up into words.
+#
+# str - The String that is going to be segmented.
+#
+# Returns the Array filled with words.
 def segment_string(str)
 	puts "STARTING"
 	#create array to store words
@@ -25,7 +31,8 @@ def segment_string(str)
 			last_letter = word_index.values.max + 1
 			puts "this is the #{last_letter}"
 			#Delete the word from array
-			words.delete(word_index.key(word_index.values.max))
+			#words.delete(word_index.key(word_index.values.max))
+			words.pop
 			#Delete the key/value pair with highest value
 			word_index.delete(word_index.max_by{|k,v| v}[0])
 			puts "here is my current hash #{word_index}"

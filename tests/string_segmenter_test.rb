@@ -20,10 +20,16 @@ class StringSegmenterTest < Minitest::Test
   	assert_equal(["publish", "cat", "run"], segment_string(str))
   end
   
-    def test_simple
+   def test_simple
   	str = "catrun"
 
   	assert_equal(["cat", "run"], segment_string(str))
-  end
-  
+   end
+
+   def test_complicated
+  	str = "catrunnerytrance"
+
+  	assert_equal(["cat", "runnery", "trance"], segment_string(str))
+   end
+
 end
