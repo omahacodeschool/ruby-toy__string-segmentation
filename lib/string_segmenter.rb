@@ -92,3 +92,34 @@ def find_new_i_from_hash(wordHash)
   i = startHereValue
   return i
 end
+
+
+
+
+
+
+
+# returns position to re-begin string iteration
+#
+# wordHash - Hash to be processed
+#
+# Example:
+#
+# find_restart_value({"apple"=>100, "banana"=>200})
+# => 201
+#
+# returns position as Integer after end of most recently added word in Hash
+
+
+
+
+# returns hash keys as array
+#
+# wordHash - Hash to be converted
+#
+# Example:
+#
+# final_hash_to_string({"a"=>100, "b"=>200})
+# => [a, b]
+#
+# returns the Array of Hash keys
