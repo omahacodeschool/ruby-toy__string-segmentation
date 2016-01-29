@@ -1,35 +1,75 @@
 require_relative 'dictionary'
 
 def segment_string(str)
-word1 = ""
-word = ""
-string = ""
-y=0
-index = 0
-string2 = ""
-indexes = []
-length_array = []
-new_array = []
-word_array = []
-array = str.split""
-string3 = ""
-skip_counter = 0
-index_at_first_end = 0
-  array.each_with_index do |x, i|
-    string << x
-    y += 1
-    if valid_word?(string)
-      word1 = string.dup
-      string = ""
-      word_array << word1
-      else skip_counter = 1
+
+  lettercollection = []
+  wordstore = {}
+  i = 0
+  str = str.split('')
+  skip_counter = 0
+  y = str.length
+
+  while i < y do
+    lettercollection.push(str[i])
+    word = lettercollection.join('')
+
+    if valid_word?(word) == true
+      if skip_counter == 1
+        i += 1
+        skip_counter = 0
+        next
+      else
+        wordstore[word] = i
+        lettercollection = []
+        i += 1
+      end
+
+    else
+
+      i += 1
+      if i >= str.length
+        lettercollection = []
+        skip_counter = 1
+        lastword = wordstore.max_by { |k, v| v }
+        lastwordkey = lastword[0]
+        wordstore.delete(lastwordkey)
+
+        if wordstore.max_by { |k, v| v } == nil
+            startpointvalue = 0
+          else 
+            startpoint = wordstore.max_by { |k,v| v }
+            startpointvalue = startpoint[1] + 1
+          end
+          i = startpointvalue
+        end
+      end
     end
-    word1 = ""
-  end
-    #index_at_first_end = (string2.length - 1)
 
-
-  p skip_counter
+    result_array = wordstore.keys
+    return result_array
 end
 
-segment_string("sharkbluewaffletiger")
+
+puts segment_string("sharksblueswaffletigers")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

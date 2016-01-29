@@ -2,31 +2,75 @@ require_relative 'dictionary'
 require 'pry'
 
 def segment_string(str)
-  array = str.split("")
-  result_array=[]
-  new_array = []
-  string2 = ""
-  word = ""
-  until array.empty?
-    string2 += array.shift
-    if valid_word?(string2)
-      word = string2
-      new_array = array
-      until new_array.empty?
-        string2 += new_array.shift
-        if valid_word?(string2)
-          word = string2
-          array = new_array
-        end
-        ##look at remainder - put letters onto it until you can form valid word
-        ##put last letter back onto array
+
+  lettercollection = []
+  wordstore = {}
+  i = 0
+  str = str.split('')
+  skip_counter = 0
+  y = str.length
+
+  while i < y do
+    lettercollection.push(str[i])
+    word = lettercollection.join('')
+
+    if valid_word?(word) == true
+      if skip_counter == 1
+        i += 1
+        skip_counter = 0
+        next
+      else
+        wordstore[word] = i
+        lettercollection = []
+        i += 1
       end
-      result_array << word
-      string2 = ""
-      word = ""
+
+    else
+
+      i += 1
+      if i >= str.length
+        lettercollection = []
+        skip_counter = 1
+        lastword = wordstore.max_by { |k, v| v }
+        lastwordkey = lastword[0]
+        wordstore.delete(lastwordkey)
+
+        if wordstore.max_by { |k, v| v } == nil
+            startpointvalue = 0
+          else 
+            startpoint = wordstore.max_by { |k,v| v }
+            startpointvalue = startpoint[1] + 1
+          end
+          i = startpointvalue
+        end
+      end
     end
-  end
-  p result_array
+
+    result_array = wordstore.keys
+    return result_array
 end
 
-segment_string("bluepuzzlingtrusts")
+
+puts segment_string("sharksblueswaffletigers")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

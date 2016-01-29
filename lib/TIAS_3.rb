@@ -29,8 +29,8 @@ def segment_string(str)
             ##go back a step
             new_array.each do |x|
               string4 << x
-              if valid_word?(string4)
-              else 
+              if valid_word?(string4) == false
+              
           end
                 word = word2.dup
           end
