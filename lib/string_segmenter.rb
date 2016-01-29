@@ -1,24 +1,36 @@
 require_relative 'dictionary'
 
+# returns string of letters as array of contained words
+# 
+# str - String to be split
+# 
+# Example:
+# 
+# "turtlebluetraintrust"
+# => ["turtle", "blue", "train", "trust"]
+#
+# Returns an Array consisting of dictionary words
 def segment_string(str)
-  puts "STARTING!"
+
   collect = []
   wordHash = {}
+
   i = 0
-  str = str.split('')
   skip_counter = 0
+
+  str = str.split('')
+
+  puts "str.length is #{str.length}"
   puts "Just split str. It's now #{str}"
   puts "Starting the loop!"
-  puts "str.length is #{str.length}"
 
   while i < (str.length) do
-    puts "i is #{i}" #i is index
+    #i is index
     # str[i] the letter 't', for example
     # str[0..i] all of str from 0 until i
+
     collect.push(str[i])
-    puts "Just pushed i into 'collect', so collect is now #{collect}"
     word = collect.join('')
-    puts "word is #{word}"
 
     if valid_word?(word) == true
       if skip_counter == 1
@@ -54,25 +66,59 @@ def segment_string(str)
         finalWordKey = finalWord[0] #
         puts "finalWord is #{finalWord}"
         puts "finalWordKey is #{finalWordKey}"
-
         wordHash.delete(finalWordKey)
         puts "final word deleted from hash."
         puts "wordHash is now #{wordHash}"
 
-        if wordHash.max_by { |k,v| v } == nil #deleted only word in hash
-          startHereValue = 0
-        else #already other word in hash
-          startHere = wordHash.max_by { |k,v| v }
-          startHereValue = startHere[1] + 1
-          puts "startHere value is #{startHere}"
-        end
-        i = startHereValue
+        wordHash = find_restart_value(wordHash)
+
+        #if wordHash.max_by { |k,v| v } == nil #deleted only word in hash
+        #  startHereValue = 0
+        #else 
+        #  startHere = wordHash.max_by { |k,v| v }
+        #  startHereValue = startHere[1] + 1 
+        #  puts "startHere value is #{startHere}"
+        #end
+        #i = startHereValue
       end
     end
   end
+  finalArray = final_hash_to_string(wordHash)
+end
 
-  puts "reached end of string"
+
+# returns hash keys as array
+#
+# wordHash - Hash to be converted
+#
+# Example:
+#
+# final_hash_to_string({"a"=>100, "b"=>200})
+# => [a, b]
+#
+# returns the Array of Hash keys
+def final_hash_to_string(wordHash)
   finalArray = wordHash.keys
-  puts "finalArray is #{finalArray}"
   return finalArray
+end
+
+# returns position to re-begin string iteration
+#
+# wordHash - Hash to be processed
+#
+# Example:
+#
+# find_restart_value({"apple"=>100, "banana"=>200})
+# => 201
+#
+# returns position as Integer after end of most recently added word in Hash
+def find_restart_value(wordHash)
+  if wordHash.max_by { |k,v| v } == nil #if deleted only word in hash
+    startHereValue = 0
+  else 
+    startHere = wordHash.max_by { |k,v| v }
+    startHereValue = startHere[1] + 1 
+  end
+  i = startHereValue
+  return i
 end
