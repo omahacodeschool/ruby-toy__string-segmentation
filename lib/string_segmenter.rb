@@ -12,14 +12,13 @@ def segment_string(str)
         front -= 1
         back = 1
         i += 1      
-                       
+#                       
 #Its moving backwards, from the end of the string to the beggining
-#
 #as sample is verified that it has a word, its put into an words an array, 
 #
 #the back stays on until the word is done, then it goes further, and the
-#
 #index continues to decrease.
+#
       else
         front -= 1
         back += 1
@@ -29,7 +28,6 @@ def segment_string(str)
   
 print words.reverse
 end
-segment_string("avacadoburritohampsterscathamwordsupper")
 
 
 
