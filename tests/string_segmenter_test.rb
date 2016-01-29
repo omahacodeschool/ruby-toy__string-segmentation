@@ -52,4 +52,9 @@ class StringSegmenterTest < Minitest::Test
     sample_string = "judginglyendingsaliasesbasements"
     assert_equal(["judgingly", "endings", "aliases", "basements"], segment_string(sample_string))
   end
+
+  def test_word_within_word
+    sample_string = "molassescementtrusted"
+    assert_equal(["molasses", "cement", "trusted"], segment_string(sample_string))
+  end
 end
