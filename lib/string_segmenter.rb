@@ -1,59 +1,36 @@
 require_relative 'dictionary.rb'
 def segment_string(str)
+  i = 0                           
+  words = []    
+  front = - 1
+  back = 1
   
-  i = 0                               
-
-  
-  temp = []                           
-
-  
-  words = [] 
-  skip = false                         
-
-
-  while i < str.length              
-    sample_from_string = str[i]        
-    temp << sample_from_string        
-      
-    if valid_word?(temp.join) 
-      words << temp.join
-      temp = []
-
-      if skip == true
-        temp << words[-1]
-        words.pop
-        temp << sample_from_string
-
-        if valid_word?(temp.join)
-          words << temp
-          temp = []
-          i == words.length + 1
-        end                                   
-      
-      end                                                      
-
-    else
-      if i = temp.length + 1
-          # skip = true
-
-          temp << words[-1]
-          
-          words.pop
-          temp << sample_from_string
-
-        if valid_word?(temp.join)
-          words << temp
-          
-          temp = []
-          i == words.length + 1
-        end
-      end              
-
-    end   
-
-    i += 1                            
+  while i < str.length                
+    sample = str[front,back]
+      if valid_word?(sample)
+        words << sample
+        front -= 1
+        back = 1
+        i += 1      
+                       
+#Its moving backwards, from the end of the string to the beggining
+#
+#as sample is verified that it has a word, its put into an words an array, 
+#
+#the back stays on until the word is done, then it goes further, and the
+#
+#index continues to decrease.
+      else
+        front -= 1
+        back += 1
+        i += 1   
+      end
   end   
-                                
-  return words                        
+  
+print words.reverse
 end
-print segment_string("hampsteravacadouniversemannorthburritohampster")
+segment_string("avacadoburritohampsterscathamwordsupper")
+
+
+
+

@@ -29,7 +29,7 @@ def segment_string(str)
   
 print words.reverse
 end
-segment_string("avacadoburritohampsterscatham")
+segment_string("avacadoburritohampsterscathamwordsupper")
 
 
 
