@@ -2,6 +2,10 @@ require 'test_helper'
 require 'string_segmenter'
 
 class StringSegmenterTest < Minitest::Test
+  def test_simple
+    sample_input = "speakthiswordordie"
+    assert_equal(["speak", "this", "word", "or", "die"], segment_string(sample_input))
+
   def test_plural
     sample_input = "capscapescanscans"
     assert_equal(["caps", "capes", "can", "scans"], segment_string(sample_input))
@@ -13,8 +17,8 @@ class StringSegmenterTest < Minitest::Test
   end
 
   def test_word_in_word
-    sample_input = "apartapartapartmentapartments"
-    assert_equal(["apart", "a", "part", "apartment", "apartment"], segment_string(sample_input))
+    sample_input = "speakersatsthisword"
+    assert_equal(["speak", "ersats", "this", "word"], segment_string(sample_input))
   end
 
   def test_blank_str
