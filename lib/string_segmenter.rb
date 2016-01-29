@@ -1,7 +1,3 @@
-require "pry"
-
-# catpublish
-#       ^ DONT STOP
 def segment_string(str)
   puts "BEGINNING STRING SEGMENTATION FOR '#{str}'"
 
