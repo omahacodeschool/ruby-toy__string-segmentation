@@ -37,15 +37,11 @@ def segment_string(str)
       end
     end
 
-    # If we're about to finish but there are danglers:
     if dangler?(i, len, prefix)
       puts "ABOUT TO FINISH BUT '#{prefix}' IS NOT A WORD!"
       puts "DANGLER! DANGLER!"
 
-      puts "\nThis means the last word we added SHOULD NOT have been added."
-      puts "Removing that word from our collection."
-      last_word_index = words.keys.sort.last
-      words.delete(last_word_index)
+      words = delete_last_word(words)
 
       puts "So now we just have #{words} collected."
 
@@ -80,8 +76,13 @@ def dangler?(i, len, prefix)
   (i == len) && !valid_word?(prefix)
 end
 
-
-
+def delete_last_word(words)
+  puts "\nThis means the last word we added SHOULD NOT have been added."
+  puts "Removing that word from our collection."
+  last_word_index = words.keys.sort.last
+  words.delete(last_word_index)
+  return words
+end
 
 
 
