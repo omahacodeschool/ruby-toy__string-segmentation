@@ -5,6 +5,7 @@ class StringSegmenterTest < Minitest::Test
   def test_simple
     sample_input = "speakthiswordordie"
     assert_equal(["speak", "this", "word", "or", "die"], segment_string(sample_input))
+  end
 
   def test_plural
     sample_input = "capscapescanscans"
