@@ -1,3 +1,5 @@
+require_relative "dictionary"
+
 def segment_string(str)
   puts "BEGINNING STRING SEGMENTATION FOR '#{str}'"
 
@@ -36,7 +38,7 @@ def segment_string(str)
     end
 
     # If we're about to finish but there are danglers:
-    if (i == len) && !valid_word?(prefix)
+    if dangler?(i, len, prefix)
       puts "ABOUT TO FINISH BUT '#{prefix}' IS NOT A WORD!"
       puts "DANGLER! DANGLER!"
 
@@ -73,3 +75,23 @@ def segment_string(str)
   puts "Returning just the words: #{words.values}"
   return words.values
 end
+
+def dangler?(i, len, prefix)
+  (i == len) && !valid_word?(prefix)
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
