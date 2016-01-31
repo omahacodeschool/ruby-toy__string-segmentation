@@ -8,8 +8,13 @@ class StringSegmenterTest < Minitest::Test
   end
 
   def test_plural
-    sample_input = "capscapescanscans"
-    assert_equal(["caps", "capes", "can", "scans"], segment_string(sample_input))
+    sample_input = "capcapecapscapes"
+    assert_equal(["cap", "cape", "caps", "capes"], segment_string(sample_input))
+  end
+
+  def test_prefix
+    sample_input = "apartapartmentpart"
+    assert_equal(["apart", "apartment","part"], segment_string(sample_input))
   end
 
   def test_suffix
