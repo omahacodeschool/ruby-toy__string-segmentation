@@ -29,7 +29,7 @@ class StringSegmenterTest < Minitest::Test
 
   def test_blank_str
     sample_input = ""
-    assert_equal([""], segment_string(sample_input))
+    assert_equal([], segment_string(sample_input))
   end
 end
 
