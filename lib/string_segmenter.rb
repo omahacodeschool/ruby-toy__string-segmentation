@@ -49,7 +49,7 @@ end
 #
 # Returns true or false.
 def danglers?(str, first_letter, last_letter)
-	!valid_word?(str[first_letter..last_letter]) && last_letter == str.length && $word_index.keys.join.length < str.length
+	last_letter == str.length && $word_index.keys.join.length < str.length
 end
 
 

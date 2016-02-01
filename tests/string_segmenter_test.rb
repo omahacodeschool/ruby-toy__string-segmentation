@@ -27,9 +27,9 @@ class StringSegmenterTest < Minitest::Test
    end
 
    def test_complicated
-  	str = "catrunnerytrance"
+  	str = "catsurethra"
 
-  	assert_equal(["cat", "runnery", "trance"], segment_string(str))
+  	assert_equal(["cats", "urethra"], segment_string(str))
    end
 
 end
