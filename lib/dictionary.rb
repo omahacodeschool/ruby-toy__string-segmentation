@@ -1,7 +1,10 @@
 def valid_word?(word)
-  # Populate this array with some words of your choosing.
-  dictionary = []
+  dictionary = ["apple", "meagan", "guitar", "gatsby", "green", "tacos", "scarf", "adam", "turtle", "blue", "train", "trust", "help", "helping", "followed", "spread", "smiles", "smile", "apples", "spray", "smiles", "respite", "spite", "taco"]
+  dictionary.sort!
+  word = word.join("").downcase
+  word = word.reverse
 
-  # Return true if your dictionary contains `word`
-  # or false if it does not.
+  return dictionary.include?(word)
+
+
 end
