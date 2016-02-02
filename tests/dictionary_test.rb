@@ -2,7 +2,8 @@ require 'test_helper'
 require 'dictionary'
 
 class DictionaryTest < Minitest::Test
-    def test_if_exists
+  
+  def test_if_exists
     word = "hamper"
     assert_equal(true, valid_word?(word))
   end
