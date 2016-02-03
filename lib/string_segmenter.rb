@@ -23,7 +23,6 @@ class Segmentation
     @i = startHereValue
     return @i
   end
-end
 
   # returns hash keys as array
   #
@@ -37,9 +36,9 @@ end
   # returns the Array of Hash keys
   def return_final_array
     puts "reached end of string"
-    finalArray = @wordHash.keys
-    puts "finalArray is #{finalArray}"
-    return finalArray
+    @finalArray = @wordHash.keys
+    puts "finalArray is #{@finalArray}"
+    return @finalArray
   end
 
   # sets initial values to 0 or nil
@@ -56,7 +55,7 @@ end
   #
   # returns Array with each letter in an element
   def split_string
-    @str = @str.split('')
+      @str = @str.split('')
   end
 
   # checks position of iterator in String
@@ -71,7 +70,7 @@ end
   # returns String of current Array contents
   def one_letter_to_collection_array
     @collect.push(@str[@i])
-    word = @collect.join('')
+    @word = @collect.join('')
   end
 
   # empties collection Array
@@ -113,14 +112,14 @@ end
   #
   # returns Hash with key == word and value == last letter's position
   def add_word_to_hash
-    @wordHash[word] = @i
+    @wordHash[@word] = @i
   end
 
   # checks whether iterator is at last letter in String
   #
   # returns true if iterator is at last letter
   def reached_end_of_string?
-    @i >= str.length
+    @i >= @str.length
   end
 
   # deletes most recently added word from Hash
@@ -159,7 +158,7 @@ end
     while mid_string? == true do
       one_letter_to_collection_array
 
-      if valid_word?(word) == true
+      if valid_word?(@word) == true
         if check_skip_counter == true
           add_one_to_iterator
           skip_counter_off
@@ -180,8 +179,10 @@ end
           delete_final_word
           find_new_i_from_prev_word
         end
-        
       end
+        
+    end
+    return_final_array
   end
 
 end
