@@ -3,7 +3,7 @@ require_relative 'dictionary'
 def segment_string(str)
   characters = str.chars
   characters.length
-  #len = str.length
+  
   word_build = [ ] 
   collected_words = {}
 
@@ -20,11 +20,13 @@ def segment_string(str)
     word_build = characters[start..e].join
     #prefix = str[i_last_real_word...i]
       
-    if valid_word?(word_build) == true
+    if valid_word?(word_build)
     #if valid_word?(prefix)
-      if skip_flag == false
-      #if skip_counter > 0
-      #skip_counter -= 1
+      if skip_counter > 0
+      skip_counter -= 1
+    else
+      words[i] = collected_words
+      start = i
         collected_words << Hash[word_build => e]
         start = e + 1
       end
