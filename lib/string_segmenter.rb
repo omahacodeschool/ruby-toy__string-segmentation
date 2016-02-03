@@ -9,28 +9,28 @@ class SplitUpStringIntoWords
 	def segment_string(str)
 
 		@word_index = Hash.new(0)
-		first_letter= 0
-		last_letter = 0
+		@first_letter= 0
+		@last_letter = 0
 
-		while last_letter <= str.length do
+		while @last_letter <= str.length do
 
-			if danglers?(str, first_letter, last_letter)
-				last_letter = change_value_of_letter_variable
+			if danglers?(str)
+				@last_letter = change_value_of_letter_variable
 				delete_from_hash
 				
 				if you_just_deleted_the_first_word_in_hash
-					first_letter = 0
+					@first_letter = 0
 				else 
-					first_letter = change_value_of_letter_variable
+					@first_letter = change_value_of_letter_variable
 				end
 
-			elsif !valid_word?(str[first_letter..last_letter])
-				last_letter += 1
+			elsif !valid_word?(first_to_last_letter(str))
+				@last_letter += 1
 
-			elsif valid_word?(str[first_letter..last_letter])
-				@word_index[str[first_letter..last_letter]] = last_letter			
-				first_letter = last_letter + 1
-				last_letter += 1
+			elsif valid_word?(first_to_last_letter(str))
+				@word_index[first_to_last_letter(str)] = @last_letter			
+				@first_letter = @last_letter + 1
+				@last_letter += 1
 			end
 		end
 		return @word_index.keys
@@ -48,8 +48,8 @@ class SplitUpStringIntoWords
 	#word_index - The Hash that stores a String and Integer
 	#
 	# Returns true or false.
-	def danglers?(str, first_letter, last_letter)
-		last_letter == str.length && @word_index.keys.join.length < str.length
+	def danglers?(str)
+		@last_letter == str.length && @word_index.keys.join.length < str.length
 	end
 
 
@@ -78,6 +78,10 @@ class SplitUpStringIntoWords
 	#Conditional stating that now the max value in the Hash is nil.
 	def you_just_deleted_the_first_word_in_hash
 		@word_index.values.max == nil
+	end
+
+	def first_to_last_letter(str)
+		return str[@first_letter..@last_letter]
 	end
 end
 
