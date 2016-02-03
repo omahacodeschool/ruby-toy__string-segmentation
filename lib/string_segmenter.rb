@@ -133,6 +133,14 @@ end
     return @wordHash
   end
 
+  def set_segment_test_vars(x)
+    @str = x
+  end
+
+  def set_segment_plurals_test_vars(x)
+    @str = x
+  end
+
 
   # returns string of letters as array of contained words
   # 
@@ -171,8 +179,8 @@ end
 
           delete_final_word
           find_new_i_from_prev_word
-          
         end
+        
       end
   end
 
