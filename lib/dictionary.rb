@@ -1,6 +1,6 @@
 def valid_word?(word)
   # Populate this array with some words of your choosing.
-  dictionary = %w(turtle train trust blue chick chicken cow how now brown unique new york cat horse dog english one ones two twos three threes)
+  dictionary = %w(one ones two twos three threes tree trees broom brooms)
 
   if dictionary.include?(word)
     return true
