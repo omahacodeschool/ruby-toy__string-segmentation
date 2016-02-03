@@ -6,11 +6,10 @@ def segment_string(str)
   skip = false                         
 
   while i < str.length              
-    sample_from_string = str[i]        
-    temp << sample_from_string          
-    
-    if valid_word?(temp.join) 
-      words << temp.join
+    sample_from_string = str.split[i] 
+    puts "now #{sample_from_string} is sample"       
+    if valid_word?(sample_from_string.join) 
+      words << sample_from_string
       temp = []
       
       if skip == true

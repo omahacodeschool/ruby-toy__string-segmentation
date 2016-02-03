@@ -4,7 +4,10 @@ def segment_string(str)
   words = []    
   front = - 1
   back = 1
-  
+#                     
+#The iterator is moving backwards, the sample is being taken from the end of 
+#the string to the beggining, when 'sample' gets a valid word, its put into 
+#  
   while i < str.length                
     sample = str[front,back]
       if valid_word?(sample)
@@ -12,12 +15,8 @@ def segment_string(str)
         front -= 1
         back = 1
         i += 1      
-#                       
-#Its moving backwards, from the end of the string to the beggining
-#as sample is verified that it has a word, its put into an words an array, 
 #
-#the back stays on until the word is done, then it goes further, and the
-#index continues to decrease.
+#the 'words' array, the iterator keeps going until the last character, the #beggining of the string.  When the loop is done, it prints the collected 
 #
       else
         front -= 1
@@ -25,10 +24,10 @@ def segment_string(str)
         i += 1   
       end
   end   
-  
+#
+#When the loop is done, it prints the collected words array in revserse, the 
+#original order of the string.
+#
 print words.reverse
 end
-
-
-
-
+segment_string("avacadoburritohampsterscathamwords")
