@@ -29,13 +29,12 @@ def segment_string(str)
     end
 
     if dangler?(i, len, prefix)
+      puts "\nDANGLER! DANGLER!"
       puts "\nWe're at the end of the String, but '#{prefix}' is NOT a word."
       puts "The last word we added should NOT have been added."
       puts "We need to remove that word from our collection."
       delete_last_word  
       new_last_word_index = last_word_index
-      puts "So now we just have '#{$words}' in our collection."
-      puts "We need to rewind and start searching for words again."
       if new_last_word_index.nil?
         puts "\nRemoving the last word emptied our collection."
         puts "So we will start again from the beginning"
@@ -49,6 +48,7 @@ def segment_string(str)
       puts "SKIP is now in effect!"
       skip_counter += 1
     end
+    # if no danglers exist, continue to next letter
     i += 1
   end
 
@@ -56,20 +56,43 @@ def segment_string(str)
 
 end
 
+# Defines if danglers exist
+#
+# i - Integer value of the current character we are looking at
+# len - Integer value of the length of the String we are testing
+# prefix - String representing the remaining letters
+#
+# Example: (14, 14, jibberish)
+# => true
+#
+# Example: (14, 14, word)
+# => false
+#
+# Example: (13, 14, jibberish)
+# => false
+#
+# Returns a Boolean of true/false
 def dangler?(i, len, prefix)
   (i == len) && !valid_word?(prefix)
 end
 
+
+# Defines the method to delete the last word from our Hash = $words
+#
+#
 def delete_last_word
   $words.delete(last_word_index)
+  puts "So now we just have '#{$words}' in our collection."
+  puts "We need to rewind and start searching for words again."  
 end
 
 def last_word_index
   $words.keys.sort.last
 end
 
+# segment_string("onetwothree")
+# segment_string("onestwosthrees")
 segment_string("treesbrooms")
-segment_string("onestwosthrees")
 
 
 
