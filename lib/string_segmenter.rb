@@ -3,44 +3,39 @@ def segment_string(str)
   arr = str.split(//)
   letters = ""
   collection = []
-  i = 1
-  skip_counter = 0
+  range_right = 1
   temp_storage = []
-  count = 0
+  count_left = 0 
   
+  while range_right < arr.length
+
+    letters = arr[count_left..range_right].join
   
-  while i < arr.length
+    if valid_word?(letters) == true
+      temp_storage << letters 
+      letters="" 
 
-  
-      letters = arr[count..i].join
-    
-      if valid_word?(letters) == true
-        temp_storage << letters 
-        letters="" 
+      n = range_right + 1
+      while n < arr.length
+        double_check = arr[count_left..n].join # e.g. "carp"
 
-        n = i + 1
-        while n < arr.length
-          double_check = arr[count..n].join # e.g. "carp"
-
-          if valid_word?(double_check) == true
-            temp_storage = []
-            temp_storage << double_check
-          end
-
-          n += 1
-
+        if valid_word?(double_check) == true
+          temp_storage = []
+          temp_storage << double_check
         end
-
-        collection << temp_storage.pop
-        i = collection.join.length
-        count = i
-      else
-        i += 1
-        
+        n += 1
       end
+
+      collection << temp_storage.pop
+      range_right = collection.join.length
+      count_left = range_right
+    else
+      range_right += 1
+      
     end
-      collection   
   end
+  puts collection   
+end
 
 
-#segment_string("carspublishswimbluebirdtrustrustswimingly")
+segment_string("swimbluebirdtrustswiminglybluesharkattraction")
