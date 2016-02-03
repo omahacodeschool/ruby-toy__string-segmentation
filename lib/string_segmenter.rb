@@ -77,22 +77,31 @@ def dangler?(i, len, prefix)
 end
 
 
-# Defines the method to delete the last word from our Hash = $words
+# Defines the method to delete the last word from $words
 #
-#
+# Deletes the key-value pair and returns the value from $words whose key is equal to (last_word_index)
 def delete_last_word
   $words.delete(last_word_index)
   puts "So now we just have '#{$words}' in our collection."
   puts "We need to rewind and start searching for words again."  
 end
 
+
+# Example: $words = {3=>"one"}
+# => [3]
+# 
+#
+# Returns a new Array populated with the keys from $words
+# then Returns a new array created by sorting self.
+#
+# Returns the last element(s) of the Array. If the Array is empty, returns nil.
 def last_word_index
-  $words.keys.sort.last
+  $words.keys.last
 end
 
 # segment_string("onetwothree")
 # segment_string("onestwosthrees")
-segment_string("treesbrooms")
+# segment_string("treesbrooms")
 
 
 
