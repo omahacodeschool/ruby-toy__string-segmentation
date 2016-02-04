@@ -2,6 +2,9 @@ require_relative 'dictionary'
 
 class String_Segmenter
 
+  # Basic algorithm 
+  #
+  # Returns final array with segmented string.
   def segment_string
 
     i = 0 
@@ -40,16 +43,35 @@ class String_Segmenter
     end 
     @arr
   end 
-    
+
+  # Checks for "danglers", or letters leftover at the end of all loops.
+  #
+  # Takes these methods and properties into consideraton:
+  # valid_word?
+  # @test_word
+  # @index
+  # @str
+  #
+  #Defines danglers as a scenario where the test_word is not a valid_word
+  #the state of the index (made negative) is also equal to #the length of the original string being passed in.
+  #
+  #Only defines, does not return any data (other than true or false).
+
   def dangler?
     !valid_word?(@test_word) && -(@index) == @str.length
   end
-    
+   
+  # Ejects words from the array (the purpose of which will then be to go back #and find a longer version of the word)
+  #
+  #Affects the arr by using the shift method.
   def word_ejection()
     @word_ejected = @arr.shift
     return @word_ejected
   end
 
+  #used primarily for test purposes.
+  #
+  #Allows the string to be set to a specific value.
   def set_str(x)
     @str = x
   end
