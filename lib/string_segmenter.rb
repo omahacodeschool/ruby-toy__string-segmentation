@@ -88,7 +88,7 @@ this_many = 1
 # Until there's only 1 word (the actual valid word) left in test_arr, the 
 # block loops
 #
-# While the ammount of elements in start_arr, starting after the last letter
+# While the amount of elements in start_arr, starting after the last letter
 # of the first valid word, is greater than or equal to the counter, the end
 # has yet to be reached, and the loop continues
 #
@@ -96,22 +96,29 @@ this_many = 1
 # first letter after the first word to evaluate as True
 #
       else
-        until test_arr.length == 1
+        #until test_arr.length == 1
           while start_arr[str_loc..-1].length >= this_many
             new_section = start_arr[str_loc..-1].take(this_many).join
 #
 # If a valid word is found, there is a nested word, not a dangler, and the
 # loop is broken
 #
-# THIS IS WHERE MY PROBLEM LIES
-# If 
-#
 # If no valid word is found, there is a dangler, and the last word evaluated to
 # True is the actual valid word
 #
             if valid_word?(new_section)
+              valid_arr << test_arr.shift
+              test_arr.clear
               break
             end
+#
+# THIS IS WHERE MY PROBLEM LIES
+# If a valid (nested) word is found, the first valid word should be the actual
+# valid word. I would want to shift that word to valid_arr, empty the
+# test_arr, drop the letters from the actual valid word from start_arr, and
+# start the process again
+#
+# THE ACTUAL VALID WORD MUST BE EITHER THE 1ST OR LAST IN test_arr
 #
 # 1 is added to the counter, adding another letter to the String being
 # evaluated
@@ -126,11 +133,14 @@ this_many = 1
 #
 # str_loc ticks up 1, moving the point at which new_section begins forward 1
 #
-          test_arr.shift
-          this_many = 1
-          str_loc   += 1
-        end
-        valid_arr << test_arr.shift
+          #test_arr.shift
+          #this_many = 1
+          #str_loc   += 1
+        #end
+          if test_arr.length > 0
+            valid_arr << test_arr.pop
+          else
+          end
       end
 #
 # Once actual valid word is found from test_arr and pushed to valid_arr, the
