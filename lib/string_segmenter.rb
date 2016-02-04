@@ -33,8 +33,8 @@ def segment_string(str)
       puts "\nWe're at the end of the String, but '#{prefix}' is NOT a word."
       puts "The last word we added should NOT have been added."
       puts "We need to remove that word from our collection."
-      delete_last_word  
-      new_last_word_index = last_word_index
+      delete_last_word # this is a Hash
+      new_last_word_index = last_word_index # this is an Integer or nil
       if new_last_word_index.nil?
         puts "\nRemoving the last word emptied our collection."
         puts "So we will start again from the beginning"
@@ -55,6 +55,7 @@ def segment_string(str)
   return $words.values
 
 end
+
 
 # Defines if danglers exist
 #
@@ -77,9 +78,15 @@ def dangler?(i, len, prefix)
 end
 
 
-# Defines the method to delete the last word from $words
+# Defines how to delete the key-value pair and return the value from $words whose key is equal to (last_word_index)
 #
-# Deletes the key-value pair and returns the value from $words whose key is equal to (last_word_index)
+# Example:
+# words = {4=>"ones", 8=>"twos", 14=>"threes"}
+# last_word_index = 14
+# words.delete(14) => "threes"
+# words = {4=>"ones", 8=>"twos"}
+#
+# Returns a Hash
 def delete_last_word
   $words.delete(last_word_index)
   puts "So now we just have '#{$words}' in our collection."
@@ -87,14 +94,16 @@ def delete_last_word
 end
 
 
-# Example: $words = {3=>"one"}
-# => [3]
-# 
+# 1. Returns a new Array populated with the keys from $words
+# 2. Returns an Integer for the last value of that Array.
+# If the Array is empty, returns nil.
 #
-# Returns a new Array populated with the keys from $words
-# then Returns a new array created by sorting self.
+# Example:
+# words = {4=>"ones", 8=>"twos", 14=>"threes"}
+# words.keys => [4, 8, 14]
+# words.keys.last => 14
 #
-# Returns the last element(s) of the Array. If the Array is empty, returns nil.
+# Returns an Integer or nil
 def last_word_index
   $words.keys.last
 end
