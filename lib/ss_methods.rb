@@ -1,5 +1,5 @@
 require_relative 'dictionary' #calls the dictionary to put help run the following method 
-class SegmentString
+class AllTheWords
   # Displays startup txt, sets all variables
    def initialize(str) 
     puts "BEGIN" 
@@ -93,7 +93,7 @@ class SegmentString
     $ending_point += 1
   end
 
-  def find_words
+  def find_the_words
     puts "LOOP" 
     while not_reached_end_of_string
       prepare_string_range
